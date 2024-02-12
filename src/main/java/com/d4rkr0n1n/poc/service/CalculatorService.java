@@ -28,7 +28,7 @@ public class CalculatorService {
 		timeHashMap.put("System", systemTimeData);
 		timeHashMap.put("EST", getFormattedZonedTime("EST5EDT"));
 		timeHashMap.put("CST", getFormattedZonedTime("CST6CDT"));
-		timeHashMap.put("US TV Time", getUSTVTime());
+		timeHashMap.put("USTV Time", getUSTVTime());
 
 		LocalDate date = LocalDate.now();
 		
@@ -46,7 +46,7 @@ public class CalculatorService {
 	}
 
 	private Object getUSTVTime() {
-		return (getZonedTime("EST5EDT").getHour() - 12) + "/" + (getZonedTime("CST6CDT").getHour() - 12) + "c";
+		return Math.abs(getZonedTime("EST5EDT").getHour() - 12) + "/" + Math.abs(getZonedTime("CST6CDT").getHour() - 12) + "c";
 	}
 
 	private LocalTime getZonedTime(String zoneId) {
