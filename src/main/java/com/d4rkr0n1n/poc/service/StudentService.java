@@ -8,8 +8,8 @@ import com.d4rkr0n1n.poc.model.Student;
 public class StudentService {
     public static Student testService(){
         Student student = new Student("John Doe", "Doe", null, null, null);
-        System.err.println(student.hashCode());
-        System.err.println(student.toString());
+        System.out.println(student.hashCode());
+        System.out.println(student.toString());
         return student;
     }
 }
