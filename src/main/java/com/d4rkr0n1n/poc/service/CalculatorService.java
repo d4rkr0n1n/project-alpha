@@ -20,24 +20,23 @@ public class CalculatorService {
 		HashMap<String, Object> timeHashMap = new HashMap<String, Object>();
 		HashMap<String, String> systemTimeData = new HashMap<String, String>();
 		HashMap<String, Object> calendarData = new HashMap<String, Object>();
+		LocalDate date = LocalDate.now();
 
 		systemTimeData.put("Time", getFormattedLocalTime(LocalTime.now()));
 		systemTimeData.put("TimeZone Long", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.LONG));
 		systemTimeData.put("TimeZone Short", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.SHORT));
-
-		timeHashMap.put("System", systemTimeData);
-		timeHashMap.put("EST", getFormattedZonedTime("EST5EDT"));
-		timeHashMap.put("CST", getFormattedZonedTime("CST6CDT"));
-		timeHashMap.put("USTV Time", getUSTVTime());
-
-		LocalDate date = LocalDate.now();
 		
 		calendarData.put("Date", date.format(DateTimeFormatter.ofPattern("dd-MMM-YYYY")));
 		calendarData.put("Day of Week", date.getDayOfWeek());
 		calendarData.put("Day of Year", date.getDayOfYear());
 		calendarData.put("Week of Year", date.get(WeekFields.of(Locale.getDefault()).weekOfYear()));
-
+		
+		timeHashMap.put("System", systemTimeData);
+		timeHashMap.put("EST", getFormattedZonedTime("EST5EDT"));
+		timeHashMap.put("CST", getFormattedZonedTime("CST6CDT"));
+		timeHashMap.put("USTV Time", getUSTVTime());
 		timeHashMap.put("Calendar", calendarData);
+		
 		return timeHashMap;
 	}
 
