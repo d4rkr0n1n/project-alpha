@@ -26,12 +26,12 @@ public class SimpleObjectController {
     mapper.registerModule(new JavaTimeModule());
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     SimpleModule simpleModule = new SimpleModule();
-    
+
     mapper.registerModule(simpleModule);
-    
+
     var testObj = mapper.writeValueAsString(simpleObject);
     System.out.println("Object to Json String" + testObj);
-    
+
     var testObj2 = mapper.readValue(testObj, SimpleObject.class);
     System.out.println("Json String to Object" + testObj2);
     System.out.println(Timestamp.valueOf(testObj2.timeStamp()));
