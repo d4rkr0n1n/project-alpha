@@ -15,49 +15,50 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculatorService {
 
-	public HashMap<String, Object> getTime() {
+  public HashMap<String, Object> getTime() {
 
-		HashMap<String, Object> timeHashMap = new HashMap<String, Object>();
-		HashMap<String, String> systemTimeData = new HashMap<String, String>();
-		HashMap<String, Object> calendarData = new HashMap<String, Object>();
-		LocalDate date = LocalDate.now();
+    HashMap<String, Object> timeHashMap = new HashMap<String, Object>();
+    HashMap<String, String> systemTimeData = new HashMap<String, String>();
+    HashMap<String, Object> calendarData = new HashMap<String, Object>();
+    LocalDate date = LocalDate.now();
 
-		systemTimeData.put("Time", getFormattedLocalTime(LocalTime.now()));
-		systemTimeData.put("TimeZone Long", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.LONG));
-		systemTimeData.put("TimeZone Short", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.SHORT));
-		
-		calendarData.put("Date", date.format(DateTimeFormatter.ofPattern("dd-MMM-YYYY")));
-		calendarData.put("Day of Week", date.getDayOfWeek());
-		calendarData.put("Day of Year", date.getDayOfYear());
-		calendarData.put("Week of Year", date.get(WeekFields.of(Locale.getDefault()).weekOfYear()));
-		
-		timeHashMap.put("System", systemTimeData);
-		timeHashMap.put("EST", getFormattedZonedTime("EST5EDT"));
-		timeHashMap.put("CST", getFormattedZonedTime("CST6CDT"));
-		timeHashMap.put("USTV Time", getUSTVTime());
-		timeHashMap.put("Calendar", calendarData);
-		
-		return timeHashMap;
-	}
+    systemTimeData.put("Time", getFormattedLocalTime(LocalTime.now()));
+    systemTimeData.put("TimeZone Long", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.LONG));
+    systemTimeData.put("TimeZone Short", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.SHORT));
 
-	private String getDefaultTimeZone(ZoneId zoneId, int timeZone) {
-		return TimeZone.getTimeZone(zoneId).getDisplayName(false, timeZone, Locale.getDefault(Locale.Category.DISPLAY));
-	}
+    calendarData.put("Date", date.format(DateTimeFormatter.ofPattern("dd-MMM-YYYY")));
+    calendarData.put("Day of Week", date.getDayOfWeek());
+    calendarData.put("Day of Year", date.getDayOfYear());
+    calendarData.put("Week of Year", date.get(WeekFields.of(Locale.getDefault()).weekOfYear()));
 
-	private Object getUSTVTime() {
-		return Math.abs(getZonedTime("EST5EDT").getHour() - 12) + "/" + Math.abs(getZonedTime("CST6CDT").getHour() - 12) + "c";
-	}
+    timeHashMap.put("System", systemTimeData);
+    timeHashMap.put("EST", getFormattedZonedTime("EST5EDT"));
+    timeHashMap.put("CST", getFormattedZonedTime("CST6CDT"));
+    timeHashMap.put("USTV Time", getUSTVTime());
+    timeHashMap.put("Calendar", calendarData);
 
-	private LocalTime getZonedTime(String zoneId) {
-		return LocalDateTime.now().atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of(zoneId)).toLocalTime();
-	}
+    return timeHashMap;
+  }
 
-	private String getFormattedZonedTime(String zoneId) {
-		return getFormattedLocalTime(getZonedTime(zoneId));
-	}
+  private String getDefaultTimeZone(ZoneId zoneId, int timeZone) {
+    return TimeZone.getTimeZone(zoneId).getDisplayName(false, timeZone, Locale.getDefault(Locale.Category.DISPLAY));
+  }
 
-	private String getFormattedLocalTime(LocalTime now) {
-		return now.format(DateTimeFormatter.ofPattern("hh:mm a"));
-	}
+  private Object getUSTVTime() {
+    return Math.abs(getZonedTime("EST5EDT").getHour() - 12) + "/" + Math.abs(getZonedTime("CST6CDT").getHour() - 12)
+        + "c";
+  }
+
+  private LocalTime getZonedTime(String zoneId) {
+    return LocalDateTime.now().atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of(zoneId)).toLocalTime();
+  }
+
+  private String getFormattedZonedTime(String zoneId) {
+    return getFormattedLocalTime(getZonedTime(zoneId));
+  }
+
+  private String getFormattedLocalTime(LocalTime now) {
+    return now.format(DateTimeFormatter.ofPattern("hh:mm a"));
+  }
 
 }

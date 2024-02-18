@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 public class StudentController {
-    
 
-    @GetMapping("/test")
-    public Student test() {
-        return StudentService.testService();
-    }
-    
+  @GetMapping("/test")
+  public Student test() {
+    return StudentService.testService();
+  }
+
 }

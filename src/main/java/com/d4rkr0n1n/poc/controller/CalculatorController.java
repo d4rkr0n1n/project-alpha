@@ -13,13 +13,13 @@ import com.d4rkr0n1n.poc.service.CalculatorService;
 @RequestMapping("/api/v1/calculate")
 public class CalculatorController {
 
-    @Autowired
-    private CalculatorService calculatorService;
+  @Autowired
+  private CalculatorService calculatorService;
 
-    @GetMapping("/time")
-    public HashMap<String,Object> getTime() {
-       
-        return calculatorService.getTime();
-    }
+  @GetMapping("/time")
+  public HashMap<String, Object> getTime() {
+
+    return calculatorService.getTime();
+  }
 
 }
