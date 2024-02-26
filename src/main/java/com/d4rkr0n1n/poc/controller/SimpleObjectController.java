@@ -14,8 +14,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import lombok.extern.java.Log;
+
 @RestController
 @RequestMapping("/api/v1/simple")
+@Log
 public class SimpleObjectController {
 
   @GetMapping("/test")
@@ -37,6 +40,7 @@ public class SimpleObjectController {
     System.out.println(Timestamp.valueOf(testObj2.timeStamp()));
 
     System.out.println("Object to Json String" + mapper.writeValueAsString(testObj2));
+    log.info("Object to Json String" + mapper.writeValueAsString(testObj2));
     return simpleObject;
   }
 
