@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 import org.springframework.stereotype.Service;
@@ -15,18 +16,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculatorService {
 
-  public HashMap<String, Object> getTime() {
+  public Map<String, Object> getTime() {
 
-    HashMap<String, Object> timeHashMap = new HashMap<String, Object>();
-    HashMap<String, String> systemTimeData = new HashMap<String, String>();
-    HashMap<String, Object> calendarData = new HashMap<String, Object>();
+    HashMap<String, Object> timeHashMap = new HashMap<>();
+    HashMap<String, String> systemTimeData = new HashMap<>();
+    HashMap<String, Object> calendarData = new HashMap<>();
     LocalDate date = LocalDate.now();
 
     systemTimeData.put("Time", getFormattedLocalTime(LocalTime.now()));
     systemTimeData.put("TimeZone Long", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.LONG));
     systemTimeData.put("TimeZone Short", getDefaultTimeZone(ZoneId.systemDefault(), TimeZone.SHORT));
 
-    calendarData.put("Date", date.format(DateTimeFormatter.ofPattern("dd-MMM-YYYY")));
+    calendarData.put("Date", date.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
     calendarData.put("Day of Week", date.getDayOfWeek());
     calendarData.put("Day of Year", date.getDayOfYear());
     calendarData.put("Week of Year", date.get(WeekFields.of(Locale.getDefault()).weekOfYear()));
