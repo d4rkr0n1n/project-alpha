@@ -5,5 +5,6 @@
 - [ ] Setup Badges(incl. codespace full setup)
 - [ ] Setup Tests
 - [ ] Setup Issues
-- [ ] Add Thymeleaf + HTMX
+- [ ] Add Thymeleaf
+- [ ] Add HTMX
 - [ ] Add CSS
