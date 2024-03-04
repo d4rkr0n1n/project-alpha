@@ -1,3 +1,50 @@
 spring:
+  profiles:
+    active: dev,local
   application:
     name: poc-spring-boot-react-js-aws
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate.ddl-auto: update
+    show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+---
+spring:
+  profiles:
+    active: test
+  application:
+    name: poc-spring-boot-react-js-aws
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate.ddl-auto: update
+    show-sql: true

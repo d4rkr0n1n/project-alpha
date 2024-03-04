@@ -1,8 +1,7 @@
 package com.d4rkr0n1n.poc.controller;
 
-import java.util.HashMap;
+import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,12 +12,14 @@ import com.d4rkr0n1n.poc.service.CalculatorService;
 @RequestMapping("/api/v1/calculate")
 public class CalculatorController {
 
-  @Autowired
-  private CalculatorService calculatorService;
+  private final CalculatorService calculatorService;
+
+  public CalculatorController(CalculatorService calculatorService) {
+    this.calculatorService = calculatorService;
+  }
 
   @GetMapping("/time")
-  public HashMap<String, Object> getTime() {
-
+  public Map<String, Object> getTime() {
     return calculatorService.getTime();
   }
 
