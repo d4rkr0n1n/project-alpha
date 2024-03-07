@@ -6,8 +6,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table
-public record Student(
+public record Course(
     @Id UUID id,
     String name,
-    String course) {
+    UUID studentId) {
+
 }

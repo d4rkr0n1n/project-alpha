@@ -12,9 +12,10 @@ import lombok.extern.java.Log;
 @Log
 public class StudentService {
   public static Student testService() {
-    Student student = new Student(UUID.randomUUID(),"John Doe", "Doe", null, null, null);
+    Student student = new Student(UUID.randomUUID(),"John Doe", "Doe");
     log.info(Integer.toString(student.hashCode()));
     log.info(student.toString());
+    
     return student;
   }
   private StudentService() {
