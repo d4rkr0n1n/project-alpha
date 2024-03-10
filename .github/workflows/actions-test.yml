@@ -5,6 +5,8 @@ on:
     branches: [ "actions-test" ]
 permissions: 
   contents: write
+  pull-requests: write
+  repository-projects: write
 env:
     GH_TOKEN: ${{ github.token }}
 jobs:
