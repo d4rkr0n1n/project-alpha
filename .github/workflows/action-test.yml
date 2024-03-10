@@ -1,0 +1,15 @@
+name: Java CI with Maven
+
+on:
+  pull_request:
+    branches: [ "action-test" ]
+permissions: 
+  contents: write
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - run: echo test success
