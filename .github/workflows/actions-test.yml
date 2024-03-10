@@ -3,8 +3,6 @@ name: Java CI with Maven
 on:
   pull_request:
     branches: [ "actions-test" ]
-permissions: {}
-
 env:
     GH_TOKEN: ${{ github.token }}
 jobs:
