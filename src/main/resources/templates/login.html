@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://thymeleaf.org" lang="en">
+
+<head>
+  <title>Login Page</title>
+</head>
+
+<body>
+  <pre th:text="${error}"></pre>
+  Welcome to the login page!
+  <form method="post">
+    Name: <input type="text" name="name"><br>
+    Password: <input type="password" name="password">
+    <input type="submit">
+  </form>
+
+</body>
+
+</html>

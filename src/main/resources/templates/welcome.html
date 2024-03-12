@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://thymeleaf.org" lang="en">
+	<head>
+		<title>Welcome Page</title>
+	</head>
+	<body>
+		<div>Welcome to d4rkr0n1n-tech</div>
+		<h4 th:text="'Your Name: ' + ${name}"></h4>
+		<h4 th:text="'Your Username: ' + ${user.name}"></h4>
+    <a href="/list-todos">Todos</a>
+	</body>
+</html>
