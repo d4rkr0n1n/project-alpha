@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://thymeleaf.org" lang="en">
+
+<head>
+	<title>List Todos Page</title>
+	<link href="webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+	<script src="webjars/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<h4>Welcome <span style="color: greenyellow;" th:text="${name}"></span> to d4rkr0n1n-tech</h4>
+	<table style="width:50%">
+		<caption>Todo List</caption>
+		<thead>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Description</th>
+			<th>Target Date</th>
+			<th>Done ?</th>
+		</thead>
+		<tr th:each="todo: ${todos}">
+			<td th:text="${todo.id}">
+			<td th:text="${todo.username}">
+			<td th:text="${todo.description}">
+			<td th:text="${todo.targetDate}">
+			<td th:text="${todo.done}">
+		</tr>
+	</table>
+</body>
+
+</html>
