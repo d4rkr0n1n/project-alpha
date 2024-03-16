@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 
 <html xmlns:th="https://thymeleaf.org" lang="en">
-	<head>
-		<title>Welcome Page</title>
-	</head>
-	<body>
+
+<head>
+	<title>Welcome Page</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+
+<body>
+	<div class="container">
 		<div>Welcome to d4rkr0n1n-tech</div>
-		<h4 th:text="'Your Name: ' + ${name}"></h4>
-		<h4 th:text="'Your Username: ' + ${user.name}"></h4>
-    <a href="/list-todos">Todos</a>
-	</body>
+		<h4 th:text="'Your Name: ' + ${name}">name</h4>
+		<h4 th:text="'Your Username: ' + ${user.name}">Username</h4>
+		<a href="/todo/list">Todos</a>
+	</div>
+</body>
+
 </html>

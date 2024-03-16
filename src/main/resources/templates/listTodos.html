@@ -10,25 +10,27 @@
 </head>
 
 <body>
-
-	<h4>Welcome <span style="color: greenyellow;" th:text="${name}"></span> to d4rkr0n1n-tech</h4>
-	<table style="width:50%">
-		<caption>Todo List</caption>
-		<thead>
-			<th>ID</th>
-			<th>Username</th>
-			<th>Description</th>
-			<th>Target Date</th>
-			<th>Done ?</th>
-		</thead>
-		<tr th:each="todo: ${todos}">
-			<td th:text="${todo.id}">
-			<td th:text="${todo.username}">
-			<td th:text="${todo.description}">
-			<td th:text="${todo.targetDate}">
-			<td th:text="${todo.done}">
-		</tr>
-	</table>
+	<div class="container">
+		<h4>Welcome <span style="color: greenyellow;" th:text="${name}"></span> to d4rkr0n1n-tech</h4>
+		<table class="table">
+			<caption>Todo List</caption>
+			<thead>
+				<th>ID</th>
+				<th>Username</th>
+				<th>Description</th>
+				<th>Target Date</th>
+				<th>Done ?</th>
+			</thead>
+			<tr th:each="todo: ${todos}">
+				<td th:text="${todo.id}">
+				<td th:text="${todo.username}">
+				<td th:text="${todo.description}">
+				<td th:text="${todo.targetDate}">
+				<td th:text="${todo.done}">
+			</tr>
+		</table>
+		<a href="/todo/add" class="btn btn-success">Add Todos</a>
+	</div>
 </body>
 
 </html>
