@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org" lang="en">
-   <head>
-      <meta charset = "ISO-8859-1" />
-      <title>Spring Boot Application</title>
-   </head>
-   <body>
-      <h4>Welcome to Thymeleaf Spring Boot web application</h4>
-      <h4 th:text="${message}"></h4>
-      <h4 th:text="${spring}"></h4>
-   </body>
+
+<head>
+  <meta charset="ISO-8859-1" />
+  <title>Spring Boot Application</title>
+  <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h4>Welcome to Thymeleaf Spring Boot web application</h4>
+    <h4 th:text="${message}">message</h4>
+    <h4 th:text="${spring}">spring</h4>
+  </div>
+</body>
+
 </html>

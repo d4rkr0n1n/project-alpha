@@ -26,7 +26,6 @@ public class UserController {
   public String index(ModelMap modelMap, SessionStatus status) {
     modelMap.addAttribute("spring", "mvc");
     modelMap.addAttribute("message", "Baeldung");
-    status.setComplete();
     return "index";
   }
 
@@ -47,5 +46,11 @@ public class UserController {
       model.addAttribute("error", "Invalid username or password");
       return "login";
     }
+  }
+
+  @GetMapping("/logout")
+  public String logout(SessionStatus status) {
+    status.setComplete();
+    return "redirect:login";
   }
 }
