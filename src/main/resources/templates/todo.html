@@ -13,8 +13,8 @@
   <div class="container">
     <h1>Welcome <span style="color: greenyellow;" th:text="${name}"></span> to d4rkr0n1n-tech</h1>
     <h2>Add Todo Details</h2>
-    <form action="/todo/add" method="post">
-      Description: <input type="text" name="description" required="required">
+    <form action="/todo/add" method="post" th:object="${todo}">
+      Description: <input type="text" name="description" th:field="*{description}" required="required">
       <input type="submit" value="Submit" class="btn btn-success">
     </form>
   </div>
